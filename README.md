@@ -1,39 +1,66 @@
 # Cloud Music Webapp
 
-- [X] login and register form
-- [ ] completing the signup and login process
-- [ ] styling the registration page
-- [ ] now playing bar
-- [ ] navigation menu
-- [ ] music main page
-- [ ] album page
-- [ ] the music player
-- [ ] seamless page transitions
-- [ ] artist page
-- [ ] serach music page
-- [ ] playlists
-- [ ] song options
-- [ ] setting page
-- [ ] upload to internet
+- [X] Login and register form `(1/1/2020 Finished)`
+- [X] Completing the signup and login process
+- [X] Styling the registration page
+- [ ] Now playing bar
+- [ ] Navigation menu
+- [ ] Music main page
+- [ ] Album page
+- [ ] The music player
+- [ ] Seamless page transitions
+- [ ] Artist page
+- [ ] Serach music page
+- [ ] Playlists
+- [ ] Song options
+- [ ] Setting page
+- [ ] Upload to internet
 
 <br><br>
 
-## 1. login and register form
-* Create `sanitize function` in register-handler.php file.
-  * `strip_tags()` => strips a string. For example, "`Hello <b>world!</b>`" will return `Hello world`.
-  * `str_replace()` => I use this in order to change the space into empty if user type.
-  * `htmlspecialchars()` => converts some predefined characters to HTML entities in order to prevent XSS attack. (&"'<>).
-  * `strtolower()` => make the string to lowercase.
-  * `ucfirst()` => make the string's first letter to uppercase.
+| Function                                                                          | Finished Date |
+| --------------------------------------------------------------------------------- | ------------- |
+| <input type="checkbox" disabled checked /> <b>Login and register form</b>         |    1/1/2020   |
+| <input type="checkbox" disabled checked /> <b>Signup and login process</b>        |    2/1/2020   |
+| <input type="checkbox" disabled checked /> <b>Styling the registration page</b>   |    3/1/2020   |
+| <input type="checkbox" disabled /> <b>Now playing bar</b>                         |               |
+| <input type="checkbox" disabled /> <b>Navigation menu</b>                         |               |
+| <input type="checkbox" disabled /> <b>Music main page</b>                         |               |
+| <input type="checkbox" disabled /> <b>Album page</b>                              |               |
+| <input type="checkbox" disabled /> <b>The music player</b>                        |               |
+| <input type="checkbox" disabled /> <b>Artist page</b>                             |               |
+| <input type="checkbox" disabled /> <b>Serach music page</b>                       |               |
+| <input type="checkbox" disabled /> <b>Playlists</b>                               |               |
+| <input type="checkbox" disabled /> <b>Song options</b>                            |               |
+| <input type="checkbox" disabled /> <b>Setting page</b>                            |               |
+| <input type="checkbox" disabled /> <b>Upload to internet</b>                      |               |
 
-* In Account.php file, I make a class called Account which is including all the validate function.
-  * I store the error message in errorArray, if the `class Account` is be defined in register.php, the errorArray array will be created.
-  * `array_push` => append the error message to array.
-  * `getError()` function is trying to judge if there are any error messages in array.
-  * Also, I use the `static method` to define the error messages which is in `Constants.php`. This is a very good way to keep error message in sync if we change message.
+<br><br>
 
-* If user types error value in the input field and submit the form, keep data showing in the input field is needed.
-  * I create a function called `keepValueLastTime($value)` in register.php, then call this function in the `attribute:value` of input.
+## Login and register form
 
-* I use `empty()` in Account.php to check if there are any errors message in errorArray, if not, return `true`. Then `$wasSuccessed` which is in register-handler.php will receive the `true` value and be redirected to `index.php` by `header("Location: index.php")`. At the same time, the data will be inserted into database. Otherwise, showing the error message.
+`知識點：`
+
+* 在每個input的value屬性加入keepValueLastTime function，以便每一次submit錯誤時，輸入值保留在input field。
+* 寫好每一個input的name屬性，以便使用PHP接受正確的值
+* 創造函數用來防範各種攻擊，例如SQL注入，XSS等。
+* login-handler.php中，我使用FILTER_VALIDATE_EMAIL判斷了輸入值是否位email，如不是則表示用戶是使用username登錄，從而通過不同的函數驗證，這允許了用戶有兩種的登錄方式。
+
+<br><br>
+
+## Signup and login process
+
+`知識點：`
+
+* 使用PHP的構造函數來創建errorArray, 用來接受error message。
+* 在Account.php 中，每一次驗證完之後再判斷有無error message，如有就使用array_push將此信息添加入errorArray，並通過getError輸出錯誤信息。
+* 爲了更方便的統一修改，我使用PHP中的static 來定義錯誤信息。
+* 爲了與database鏈接，將$pdo傳入class Account中的構造函數，以便下方的驗證使用。
+* register-handler.php中的$wasSuccessed用來接受boolean值。如成功就將username存入session，並通過header將網頁導向至index.php. 在index.php也通過判斷，如不存在session值，即登入失敗，將自動導向至register頁面。
+
+## Styling the registration page
+
+`知識點：`
+
+* 在register.js中通過click函數實現點擊改變display值，如none及block，從而實現點擊跳轉login page 和 register page。同時，因爲用戶在註冊界面即使輸入錯誤仍會跳轉至login page，因此使用了PHP添加js代碼以此確保用戶點擊後維持原界面。 
 
