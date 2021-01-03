@@ -44,5 +44,5 @@
 
 `知識點：`
 
-* 在register.js中通過click函數實現點擊改變display值，如none及block，從而實現點擊跳轉login page 和 register page。同時，因爲用戶在註冊界面即使輸入錯誤仍會跳轉至login page，因此使用了PHP添加js代碼以此確保用戶點擊後維持原界面。 
+* 在register.js中通過click函數實現點擊改變display值，如none及block，從而實現點擊跳轉login page 和 register page。同時，因爲當用戶處於註冊界面，即使用戶輸入錯誤仍會自動跳轉至login page，因此使用了PHP添加js代碼以此確保用戶點擊後維持原界面。 
 
