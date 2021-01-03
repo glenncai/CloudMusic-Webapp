@@ -1,23 +1,5 @@
 # Cloud Music Webapp
 
-- [X] Login and register form `(1/1/2020 Finished)`
-- [X] Completing the signup and login process
-- [X] Styling the registration page
-- [ ] Now playing bar
-- [ ] Navigation menu
-- [ ] Music main page
-- [ ] Album page
-- [ ] The music player
-- [ ] Seamless page transitions
-- [ ] Artist page
-- [ ] Serach music page
-- [ ] Playlists
-- [ ] Song options
-- [ ] Setting page
-- [ ] Upload to internet
-
-<br><br>
-
 | Function                                                                          | Finished Date |
 | --------------------------------------------------------------------------------- | ------------- |
 | <input type="checkbox" disabled checked /> <b>Login and register form</b>         |    1/1/2020   |
