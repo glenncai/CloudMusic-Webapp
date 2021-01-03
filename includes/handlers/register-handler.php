@@ -48,6 +48,9 @@ if(isset($_POST['registerButton'])) {
 
     // if there are no any errors, $wasSuccessed is true, then it will go on.
     if($wasSuccessed) {
+        // If true, save $username into session in order to determine that whether or not user login.
+        // If user does not login, the redirect action will happen in index.php file.
+        $_SESSION['userLoggedIn'] = $username;
         header("Location: index.php");
     }
 }
