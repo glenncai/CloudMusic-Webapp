@@ -26,7 +26,7 @@
 * 在每個input的value屬性加入keepValueLastTime function，以便每一次submit錯誤時，輸入值保留在input field。
 * 寫好每一個input的name屬性，以便使用PHP接受正確的值
 * 創造函數用來防範各種攻擊，例如SQL注入，XSS等。
-* login-handler.php中，我使用FILTER_VALIDATE_EMAIL判斷了輸入值是否位email，如不是則表示用戶是使用username登錄，從而通過不同的函數驗證，這允許了用戶有兩種的登錄方式。
+* login-handler.php中，我使用FILTER_VALIDATE_EMAIL判斷了輸入值是否爲email，如不是則表示用戶是使用username登錄，從而通過不同的函數驗證，這允許了用戶有兩種的登錄方式。
 
 <br><br>
 
