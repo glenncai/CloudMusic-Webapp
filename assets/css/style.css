@@ -1,0 +1,1021 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanalei+Fill&display=swap');
+
+* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+
+    -moz-user-select:none;/*Firefox*/
+    -webkit-user-select:none;/*webkit*/
+    -ms-user-select:none;/*IE10*/
+    -khtml-user-select:none;/*Old browser*/
+    user-select:none;
+}
+
+body {
+    background-color: #121212;
+    font-size: 14px;
+    min-width: 720px;
+}
+
+#nowPlayingBarContainer {
+    width: 100%;
+    background-color: rgb(40, 40, 40);
+    bottom: 0;
+    position: fixed;
+    min-width: 996px;
+}
+
+#nowPlayingBarContainer #nowPlayingBar {
+    display: flex;
+    box-sizing: border-box;
+    height: 90px;
+    padding: 16px;
+}
+
+#nowPlayingBar #nowPlayingLeft,
+#nowPlayingBar #nowPlayingRight {
+    width: 30%;
+    min-width: 180px;
+}
+
+#nowPlayingBar #nowPlayingRight {
+    position: relative;
+    margin-top: 16px;
+}
+
+#nowPlayingBar #nowPlayingCenter {
+    width: 40%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    align-items: center;
+}
+
+#nowPlayingCenter .content {
+    width: 100%;
+    height: 57px;
+}
+
+#nowPlayingCenter .playerControl .buttons {
+    margin: 0 auto;
+    display: table;
+} 
+
+.controlButton {
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    margin: 0 5px;
+    outline: none;
+}
+
+.controlButton img {
+    width: 19px;
+    height: 19px;
+}
+
+#nowPlayingCenter .playerControl .buttons .controlButton.play img,
+#nowPlayingCenter .playerControl .buttons .controlButton.pause img {
+    width: 36px;
+    height: 36px;
+}
+
+.controlButton {
+    cursor: pointer;
+}
+
+.controlButton.repeatActive {
+    position: relative;
+    right: 41px;
+}
+
+.playbackBar {
+    display: flex;
+}
+
+.progressTime {
+    color: #a0a0a0;
+    font-size: 12px;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    cursor: pointer;
+    display: inline-flex;
+    margin-top: 3px;
+}
+
+.progressBarLine {
+    margin-top: 2px;
+    background-color: #404040;
+    height: 5px;
+    width: 100%;
+    border-radius: 3px;
+}
+
+.progressBarLine:hover #progressMusic{
+    background-color: #1DB954;
+}
+
+#circleProgress {
+    position: relative;
+    bottom: 10px;
+    left: 0%;
+    width: 14px;
+    height: 14px;
+    display: none;
+    pointer-events: none;
+}
+
+.progressBarLine:hover #circleProgress {
+    display: inline;
+    pointer-events: none;
+}
+
+.progress {
+    background-color: #b3b3b3;
+    height: 5px;
+    width: 0;
+    border-radius: 3px;
+}
+
+#progressMusic:hover {
+    background-color: #1DB954;
+}
+
+#nowPlayingBar #nowPlayingLeft .albumArtWork {
+    width: 100%;
+    height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+#nowPlayingLeft .trackInfo {
+    display: table;
+}
+
+#nowPlayingLeft .trackInfo .trackName {
+    margin: 6px 0;
+    width: 100%;
+    display: inline-block;
+}
+
+#nowPlayingLeft .trackInfo .trackName #TrackName:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#nowPlayingLeft .trackInfo .artistName {
+    width: 100%;
+}
+
+#nowPlayingLeft .trackInfo .artistName span {
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+#nowPlayingLeft .trackInfo .artistName span:hover {
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#nowPlayingLeft .trackInfo #likeButton {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    float: right;
+    outline: none;
+}
+
+#nowPlayingLeft .trackInfo #likeButton #unlike{
+    background-image: url("../images/icons/heart.png");
+    background-position: center;
+    background-size: cover;
+    width: 17px;
+    height: 17px;
+    margin-right: 4px;
+}
+
+#nowPlayingLeft .trackInfo #likeButton #like {
+    background-image: url("../images/icons/heart-green.png");
+    background-position: center;
+    background-size: cover;
+    width: 17px;
+    height: 17px;
+    margin-right: 4px;
+}
+
+#nowPlayingLeft .trackInfo #showLyrics {
+    cursor: pointer;
+    color: #a0a0a0;
+    margin-top: 4px;
+    font-size: 10px;
+    float: right;
+}
+
+#nowPlayingLeft .trackInfo #showLyrics:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#nowPlayingRight .volumeBar {
+    position: absolute;
+    right: 0;
+    width: 230px;
+}
+
+#shuffleChangeActive {
+    position: relative;
+    left: 41px;
+}
+
+#nowPlayingRight .volumeBar button {
+    margin-top: 8px;
+}
+
+.volumeBar .progressBar {
+    position: relative;
+    right: 50px;
+    width: 130px;
+    bottom: -3px;
+}
+
+.controlButton.volumeMuted {
+    position: relative;
+    right: 44px;
+}
+
+.progressBarLine:hover #progressVolume{
+    background-color: #1DB954;
+}
+
+#circleVolume {
+    position: relative;
+    bottom: 10px;
+    left: 0%;
+    width: 14px;
+    height: 14px;
+    display: none;
+    pointer-events: none;
+}
+
+.progressBarLine:hover #circleVolume{
+    display: block;
+    pointer-events: none;
+}
+
+#topContainer {
+    width: 100%;
+    min-height: 100%;
+}
+
+#nowBarContainer {
+    background-color: black;
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#nowBarContainer .navBar {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-direction: column;
+}
+
+#nowBarContainer .navBar .logo img {
+    width: 60px;
+    height: 60px;
+}
+
+#nowBarContainer .navBar .logo {
+    cursor: pointer;
+}
+
+#nowBarContainer .navBar #logoName {
+    font-family: 'Hanalei Fill', cursive;
+    font-size: 20px;
+    float: right;
+    position: relative;
+    top: 20px;
+    right: 7px;
+}
+
+.navBar .group {
+    margin-top: 20px;
+}
+
+.navBar .group .navItem {
+    margin-top: 10px;
+    position: relative;
+}
+
+.navBar .navItem #homeLink,
+.navBar .navItem #searchLink,
+.navBar .navItem #libraryLink,
+.navBar .navItem #loveSongLink {
+    cursor: pointer;
+    display: block;
+    padding: 6px 6px;
+}
+
+.navBar .navItem .navItemLink img {
+    width: 28px;
+    height: 28px;
+}
+
+.navBar .navItem .navItemLink span {
+    color: #a0a0a0;
+    position: absolute;
+}
+
+.navBar .navItem .navItemLink #homeName {
+    top: 13px;
+    left: 45px;
+}
+
+.navBar .navItem .navItemLink #searchName {
+    top: 11px;
+    left: 45px;
+}
+
+.navBar .navItem .navItemLink #libraryName {
+    top: 12px;
+    left: 45px;
+}
+
+.navBar .navItem .navItemLink #longSongName {
+    top: 45px;
+    left: 46px;
+}
+
+.activeLinkHome,
+.activeLinkSearch,
+.activeLinkLibrary,
+.activeLinkLongSong {
+    display: block;
+    padding: 6px 6px;
+    background: #282828;    
+    border-radius: 5px;
+}
+
+.remainHomePage,
+.remainSearchPage,
+.remainLibraryPage,
+.remainLongSongPage {
+    display: block;
+    padding: 6px 6px;
+    background: #282828;    
+    border-radius: 5px;
+}
+
+#loveSongText {
+    color: #a0a0a0;
+    padding: 10px;
+    font-size: 12px;
+}
+
+#line {
+    margin-top: 5px;
+    border-bottom: 1px solid #282828;
+    display: block;
+    width: 100%;
+}
+
+.playListContainer {
+    height: 12em;
+    width: 220px;
+    overflow-x:hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch; /* For mobile */
+}
+
+.playListItem {
+    cursor: pointer;
+    padding: 7px 8px;
+    color: #a0a0a0;
+}
+
+/* change scroll bar, for Google Chrome*/
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track  {
+    background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 30px;
+    background-color: #555555;
+}
+
+/* change scroll bar, for Firefox */
+.scroller {
+    overflow-y: scroll;
+    scrollbar-color: #555555 #000000;
+}
+
+#mainViewContainer {
+    margin-left: 240px;
+    padding-bottom: 90px;
+    width: calc(100% - 240px);
+    height: calc(100% - 90px);
+}
+
+#profileContainer {
+    position: relative;
+    padding: 5px 20px;
+    height: 55px;
+    width: calc(100% - 130px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+}
+
+#profileContainer #profileContainerItem {
+    padding: 10px;
+}
+
+.previous__next img {
+    width: 25px;
+    height: 25px;
+}
+
+.previous__next #prevPage {
+    width: 10%;
+    float: left;
+}
+
+.previous__next #nextPage {
+    width: 10%;
+    float: right;
+}
+
+#profileContainerItem #profileInfo {
+    position: absolute;
+    right: 0;
+}
+
+#mainContent {
+    padding: 0px 20px 0 20px;
+}
+
+.pageHeadingSmall {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+.gridViewItem {
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: 25px;
+    min-width: 200px;
+    max-width: 200px;
+    box-sizing: border-box;
+}
+
+.gridViewItem img {
+    width: 100%
+}
+
+.gridViewItem a {
+    text-decoration: none;
+}
+
+.gridViewInside {
+    position: relative;
+    padding: 15px;
+    background-color: #1f1e1e;
+    box-sizing: border-box;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+}
+
+.gridViewInside:hover {
+    background-color: #2f2f2f;
+}
+
+.textOverName .gridViewInfo {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+} 
+
+.textOverInfo .gridViewDes {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: #b3b3b3;
+    margin-top: 0;
+}
+
+#albumButton {
+    display: block;
+    position: absolute;
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    right: 19px;
+    top: 136px;
+    transition: opacity .3s, top .3s;
+    opacity: 0;
+}
+
+#albumButton:hover {
+    width: 55px;
+    height: 55px;
+}
+
+/* remember this solution, hover can be 
+wtriiten like this way. When hover outside, 
+the inside button will be showed.*/
+.gridViewItem:hover #albumButton{
+    right: 19px;
+    top: 133px;
+    opacity: 1;
+}
+
+.entityInfo {
+    position: relative;
+    padding: 30px 0 15px 0;
+    border-radius: 10px;
+    display: inline-block;
+    width: 100%;
+    background: rgb(77,77,77);
+    background: linear-gradient(180deg, rgba(77,77,77,1) 0%, rgba(42,42,42,1) 100%, rgba(0,212,255,1) 100%);
+    min-width: 580px
+}
+
+.entityInfo .leftSection {
+    width: 40%;
+    float: left;
+    max-width: 250px;
+}
+
+.entityInfo .leftSection img {
+    margin-left: 20px;
+    width: 100%;
+    box-shadow: 0 4px 60px rgba(0,0,0,.5);
+}
+
+.entityInfo .rightSection {
+    position: absolute;
+    box-sizing: border-box;
+    width: 70%;
+    float: left;
+    left: 290px;
+    top: 130px;
+}
+
+.albumTitle {
+    font-size: 60px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.albumDescription,
+.albumText {
+    color: #b3b3b3;
+    font-size: 15px;
+}
+
+.albumInfo {
+    margin-top: 3px;
+}
+
+.artistTextLink {
+    text-decoration: none;
+}
+
+.artistTextLink:hover {
+    text-decoration: underline;
+}
+
+.artistTextColor {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.tracklist {
+    min-width: 680px;
+    padding: 0;
+}
+
+.trackTopTopContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-box-align: center;
+    width: 100%;
+    min-width: 650px;
+    padding: 8px 10px 5px 10px;
+}
+
+.trackTopPlay {
+    width: 8%;
+    float: left;
+}
+
+.trackTopPlay #trackTopPlayButton {
+    width: 65px;
+    height: 65px;
+}
+
+.trackTopLike,
+.trackTopMore {
+    width: 7%;
+    float: left;
+}
+
+.trackTopLike #trackTopLikeButton {
+    width: 35px;
+    height: 35px;
+}
+
+.trackTopMore #trackTopMoreButton {
+    width: 25px;
+    height: 25px;
+}
+
+@media only screen and (max-width: 1490px) {
+    .trackTopPlay {
+        width: 13%;
+    }
+}
+
+.trackTop {
+    min-width: 650px;
+    padding: 20px 10px 0px 10px;
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.trackTop .trackLeft {
+    width: 8%;
+    float: left;
+}
+
+.trackTop .trackCenter {
+    width: 80%;
+    float: left;
+}
+
+.trackTop .trackCenter span,
+.trackTop .trackLeft span {
+    font-size: 15px;
+    color: #b3b3b3;
+}
+
+.trackTop .trackRight img {
+    width: 20px;
+}
+
+.tracklistRow {
+    padding: 15px 10px;
+    height: 40px;
+    list-style: none;
+}
+
+.tracklistRow span{
+    color: #b3b3b3;
+    font-weight: 200;
+}
+
+.tracklistRow:hover {
+    background-color: #282828;
+}
+
+.tracklistRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.tracklistRow .trackCount img {
+    width: 25px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.tracklistRow:hover .trackCount img {
+    visibility: visible;
+}
+
+.tracklistRow .trackCount span {
+    visibility: visible;
+}
+
+.tracklistRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+.tracklistRow .trackInfo {
+    width: 70%;
+    float: left;
+}
+
+.tracklistRow .trackInfo span {
+    display: block;
+}
+
+.tracklistRow .trackInfo .trackName {
+    font-size: 18px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.tracklistRow .trackInfo .artistName {
+    font-size: 16px;
+}
+
+.tracklistRow .trackLiked {
+    width: 5%;
+    float: left;
+    text-align: right;
+}
+
+.tracklistRow .trackLiked img {
+    width: 28px;
+    visibility: hidden;
+}
+
+.tracklistRow:hover .trackLiked img {
+    visibility: visible;
+}
+
+.tracklistRow .trackDuration {
+    width: 12%;
+    float: left;
+    text-align: center;
+}
+
+.tracklistRow .trackDuration .duration {
+    font-size: 19px;
+}
+
+.tracklistRow .trackOption {
+    width: 5%;
+    float: left;
+}
+
+.tracklistRow .trackOption img {
+    width: 28px;
+    visibility: hidden;
+}
+
+.tracklistRow:hover .trackOption img {
+    visibility: visible;
+}
+
+.entityInfoArtist {
+    padding: 30px 0 15px 0;
+    display: inline-block;
+    width: 100%;
+    min-width: 580px
+}
+
+.artistInfo {
+    text-align: center;
+}
+
+.artistInfo .artist__pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.artist_country {
+    font-weight: 200;
+    color: #b3b3b3;
+}
+
+.button {
+    color: #ffffff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: #1DB954;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 2px solid  #1DB954;
+    border-radius: 500px;
+    padding: 15px;
+    min-width: 130px;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #b3b3b3;
+    border: 2px solid #b3b3b3;
+}
+
+.borderBottom {
+    border-bottom: 1px solid #2f2f2f;
+}
+
+.searchContainer {
+    background-color: #242424;
+    padding: 20px 28px;
+}
+
+.searchContainer .searchInput {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 2px;
+}
+
+.artistViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#artistPicSearch,
+#searchAblumPic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.artistViewInside {
+    position: relative;
+    padding: 30px;
+    background-color: #1f1e1e;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-transition: all 0.20s ease-in-out;
+    -moz-transition: all 0.20s ease-in-out;
+    -ms-transition: all 0.20s ease-in-out;
+    -o-transition: all 0.20s ease-in-out;
+}
+
+.artistViewInside:hover {
+    background-color: #2f2f2f;
+}
+
+.artistViewInside .gridViewInfo {
+    text-align: center;
+}
+
+#albumPicSearch {
+    width: 120px;
+    height: 120px;
+}
+
+.noResults {
+    margin-bottom: 15px;
+    display: block;
+}
+
+.libraryContainer {
+    padding: 10px 0;
+}
+
+.libraryViewContainer h1 {
+    text-align: center;
+}
+
+.buttonItems .button {
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.playlistImage {
+    cursor: pointer;
+}
+
+.playlistInfo {
+    font-size: 15px;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.messageContainer {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.playListMessageTop,
+.playListMessageBottom {
+    display: block;
+}
+
+.playListMessageTop {
+    margin-top: 15px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 36px;
+    letter-spacing: -.04em;
+    text-transform: none;
+}
+
+.playListMessageBottom {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    text-transform: none;
+    margin-top: 8px;
+}
+
+.playlistCD {
+    width: 64px;
+    height: 64px;
+}
+
+.playlistImage {
+    border: 3px solid #282828;
+    padding: 10px;
+}
+
+.playlistTitle {
+    font-size: 60px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    width: 100%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.playlistOwner {
+    display: block;
+    color: #b3b3b3;
+    font-size: 17px;
+}
+
+.playlistText {
+    display: block;
+    margin-top: 10px;
+    color: #b3b3b3;
+    font-size: 17px;
+}
+
+.playlistButton {
+    display: block;
+    margin-top: 15px;
+}
+
+.entityInfo .rightSectionPlaylist {
+    position: absolute;
+    box-sizing: border-box;
+    width: 70%;
+    float: left;
+    left: 290px;
+    top: 80px;
+}
+

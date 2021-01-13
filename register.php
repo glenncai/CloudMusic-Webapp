@@ -30,7 +30,7 @@ function keepValueLastTime($value) {
 <body>
 
     <div class="head">
-        <img src="assets/images/logo/logo.png" alt="logo">
+        <img src="assets/images/logo/logo-black.png" alt="logo">
     </div>
 
     <div id="heading">Discover more in cloud music...</div>
