@@ -13,7 +13,7 @@
 | <input type="checkbox" disabled checked /> <b>Artist page</b>                     |    9/1/2020   |
 | <input type="checkbox" disabled checked /> <b>Serach music page</b>               |    11/1/2020  |
 | <input type="checkbox" disabled checked /> <b>Playlists</b>                       |    13/1/2020  |
-| <input type="checkbox" disabled /> <b>Song options</b>                            |    16/1/2020  |
+| <input type="checkbox" disabled checked /> <b>Song options</b>                    |    16/1/2020  |
 | <input type="checkbox" disabled /> <b>Setting page</b>                            |               |
 | <input type="checkbox" disabled /> <b>Upload to internet</b>                      |               |
 
