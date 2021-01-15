@@ -11,6 +11,42 @@ var timer;
 // declare as windows object
 var userLoggedIn;
 
+// When user click empty, the option menu will disappear
+$(document).click(function(click) {
+	let target = $(click.target);
+
+	if(!target.hasClass("item") && !target.hasClass("optionButton")) {
+		hideOptionMenu();
+	}
+});
+
+// When the user scrolls the specified element, the scroll event occurs.
+$(window).scroll(function() {
+	hideOptionMenu();
+});
+
+// The on() method adds one or more event handlers to the selected element and child elements.
+$(document).on("change", "select.playlist", function() {
+	let select = $(this);
+	let playlistId = select.val();
+	let songId = select.prev(".songId").val();
+
+	$.post("includes/handlers/ajax/addToPlaylist.php", {playlistId:playlistId, songId:songId})
+	.done(function(error) {
+
+		if(error != "") {
+			alert(error);
+			return;
+		}
+
+		hideOptionMenu();
+
+		// When we finished selection, we will return to original which is <option value="">Add to playlist</option>
+		// The value is ""
+		select.val("");
+	});
+});
+
 function openPage(url) {
 
 	// Fixed bug
@@ -31,6 +67,23 @@ function openPage(url) {
 	history.pushState(null, null, url);
 }
 
+function removeFromPlaylist(button, playlistId) {
+	let songId = $(button).prevAll(".songId").val();
+
+	$.post("includes/handlers/ajax/removeFromPlaylist.php", {playlistId: playlistId, songId: songId})
+	.done(function(error) {
+		// do something when ajax returns
+
+		// If there exitsing error message
+		if(error != "") {
+			alert(error);
+			return;
+		}
+
+		openPage("playlist.php?id=" + playlistId);
+	});
+}
+
 function createPlaylist() {
 
 	let inputPlaylistName = prompt("Please enter your new playlist name:");
@@ -48,7 +101,9 @@ function createPlaylist() {
 				return;
 			}
 
-			openPage("createPlaylist.php");
+			openPage("yourLibrary.php");
+			// refresh the whole page in order to update the nav bar playlist item
+			window.location.reload();
 		});
 	}
 }
@@ -68,10 +123,46 @@ function deletePlaylist(playlistId) {
 				return;
 			}
 
-			openPage("deletePlaylist.php");
+			openPage("yourLibrary.php");
+			// refresh the whole page in order to update the nav bar playlist item
+			window.location.reload();
 		});
 	}
 
+}
+
+function showOptionMenu(button) {
+
+	// 1. Get the song id from button
+	let songId = $(button).prevAll(".songId").val();
+
+	// return the width property
+	let menu = $(".optionMenu");
+	let munuWidth = menu.width();
+
+	// 2. Set the song id value to optionMenu input
+	menu.find(".songId").val(songId);
+
+	// distance from top of window to top of document
+	let scrollTop = $(window).scrollTop();
+	// distance from top of document
+	let elementOffset = $(button).offset().top;
+
+	let top = elementOffset - scrollTop;
+	let left = $(button).position().left;
+
+	menu.css({
+		"top": top + "px",
+		"left": left - munuWidth + "px",
+		"display": "inline"
+	});
+}
+
+function hideOptionMenu() {
+	let menu = $(".optionMenu");
+	if(menu.css("display") != "none") {
+		menu.css("display", "none"); 
+	}
 }
 
 function formatTime(secondsTime) {

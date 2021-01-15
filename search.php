@@ -97,7 +97,8 @@ if(isset($_GET['term'])) {
                     </div>
 
                     <div class='trackOption'>
-                        <img class='optionButton' src='assets/images/icons/more.png'>
+                        <input type='hidden' class='songId' value='{$albumSong->getId()}'>
+                        <img class='optionButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
                     </div>
                 </li>";
             $i++;
@@ -179,3 +180,12 @@ if(isset($_GET['term'])) {
 
     ?>
 </div>
+
+<nav class="optionMenu">
+    <!-- A hidden field let web developers include data that cannot be seen or modified by users when a form is submitted. -->
+    <input type="hidden" class="songId">
+    <?php echo PlaylistID::getPlaylistDropdown($pdo, $userLoggedIn->getUsername()); ?>
+    <div class="item">Add to love song</div>
+    <div class="item">Share to Twitter</div>
+    <div class="item">Share to Facebook</div>
+</nav>

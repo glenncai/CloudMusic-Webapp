@@ -15,14 +15,17 @@ const volumeChangeActive = document.getElementById("volumeChangeActive");
 const homeLink = document.getElementById("homeLink");
 const searchLink = document.getElementById("searchLink");
 const libraryLink = document.getElementById("libraryLink");
+const profileLink = document.getElementById("profileLink");
 const loveSongLink = document.getElementById("loveSongLink");
 const homeImage = document.getElementById("homeImage");
 const searchImage = document.getElementById("searchImage");
 const libraryImage = document.getElementById("libraryImage");
+const profileImage = document.getElementById("profileImage");
 const longSongImage = document.getElementById("longSongImage");
 const homeName = document.getElementById("homeName");
 const searchName = document.getElementById("searchName");
 const libraryName = document.getElementById("libraryName");
+const profileName = document.getElementById("profileName");
 const longSongName = document.getElementById("longSongName");
 const playListItem = document.getElementsByClassName("playListItem");   
 
@@ -142,6 +145,18 @@ libraryLink.addEventListener("mouseout", mouseOut = () => {
     libraryName.style.color = "#a0a0a0";
 });
 
+profileLink.addEventListener("mouseover", mouseOver = () => {
+    profileLink.classList.add("activeLinkProfile");
+    profileImage.src = "assets/images/icons/contact-white.png"
+    profileName.style.color = "#fff";
+});
+
+profileLink.addEventListener("mouseout", mouseOut = () => {
+    profileLink.classList.remove("activeLinkProfile");
+    profileImage.src = "assets/images/icons/contact-grey.png"
+    profileName.style.color = "#a0a0a0";
+});
+
 loveSongLink.addEventListener("mouseover", mouseOver = () => {
     loveSongLink.classList.add("activeLinkLongSong");
     longSongImage.src = "assets/images/icons/loveSong-red.png"
@@ -174,6 +189,7 @@ homeLink.addEventListener("click", remainPage = () => {
     homeLink.classList.add("remainHomePage");
     searchLink.classList.remove("remainSearchPage");
     libraryLink.classList.remove("remainLibraryPage");
+    profileLink.classList.remove("remainProfilePage");
     loveSongLink.classList.remove("remainLongSongPage");
 });
 
@@ -181,6 +197,7 @@ searchLink.addEventListener("click", remainPage = () => {
     homeLink.classList.remove("remainHomePage");
     searchLink.classList.add("remainSearchPage");
     libraryLink.classList.remove("remainLibraryPage");
+    profileLink.classList.remove("remainProfilePage");
     loveSongLink.classList.remove("remainLongSongPage");
 });
 
@@ -188,6 +205,15 @@ libraryLink.addEventListener("click", remainPage = () => {
     homeLink.classList.remove("remainHomePage");
     searchLink.classList.remove("remainSearchPage");
     libraryLink.classList.add("remainLibraryPage");
+    profileLink.classList.remove("remainProfilePage");
+    loveSongLink.classList.remove("remainLongSongPage");
+});
+
+profileLink.addEventListener("click", remainPage = () => {
+    homeLink.classList.remove("remainHomePage");
+    searchLink.classList.remove("remainSearchPage");
+    libraryLink.classList.remove("remainLibraryPage");
+    profileLink.classList.add("remainProfilePage");
     loveSongLink.classList.remove("remainLongSongPage");
 });
 
@@ -195,6 +221,7 @@ loveSongLink.addEventListener("click", remainPage = () => {
     homeLink.classList.remove("remainHomePage");
     searchLink.classList.remove("remainSearchPage");
     libraryLink.classList.remove("remainLibraryPage");
+    profileLink.classList.remove("remainProfilePage");
     loveSongLink.classList.add("remainLongSongPage");
 });
 

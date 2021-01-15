@@ -15,12 +15,17 @@
             </div>
             <div class="navItem">
                 <span onclick="openPage('search.php')" class="navItemLink" id="searchLink">
-                    <img id="searchImage" src="assets/images/icons/search-black.png" alt="Home"><span id="searchName">Search</span>
+                    <img id="searchImage" src="assets/images/icons/search-black.png" alt="Search"><span id="searchName">Search</span>
                 </span>
             </div>
             <div class="navItem">
                 <span onclick="openPage('yourLibrary.php')" class="navItemLink" id="libraryLink">
-                    <img id="libraryImage" src="assets/images/icons/library-black.png" alt="Home"><span id="libraryName">Your Library</span>
+                    <img id="libraryImage" src="assets/images/icons/library-black.png" alt="Library"><span id="libraryName">Your Library</span>
+                </span>
+            </div>
+            <div class="navItem">
+                <span onclick="openPage('profile.php')" class="navItemLink" id="profileLink">
+                    <img id="profileImage" src="assets/images/icons/contact-grey.png" alt="Profile"><span id="profileName">Profile</span>
                 </span>
             </div>
             <div class="navItem">
@@ -51,7 +56,7 @@
                         }
                     } catch (Exception $ex) {
                         echo("Internal error, please contact support");
-                        error_log("Genre.php, SQL error=" . $ex->getMessage());
+                        error_log("navBarContainer.php, SQL error=" . $ex->getMessage());
                     }
                     
                 ?>

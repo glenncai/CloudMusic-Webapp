@@ -83,7 +83,8 @@ $owner = new User($pdo, $playlist->getOwner());
                     </div>
 
                     <div class='trackOption'>
-                        <img class='optionButton' src='assets/images/icons/more.png'>
+                        <input type='hidden' class='songId' value='{$playlistSong->getId()}'>
+                        <img class='optionButton' src='assets/images/icons/more.png' onclick='showOptionMenu(this)'>
                     </div>
             </li>";
             $i++;
@@ -115,6 +116,10 @@ $owner = new User($pdo, $playlist->getOwner());
     </ul>
 </div>
 
-
+<nav class="optionMenu">
+    <!-- A hidden field let web developers include data that cannot be seen or modified by users when a form is submitted. -->
+    <input type="hidden" class="songId">
+    <div class="item" onclick="removeFromPlaylist(this, '<?php echo $playlistId ?>')">Remove from playlist</div>
+</nav>
 
 

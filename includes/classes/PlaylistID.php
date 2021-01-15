@@ -78,6 +78,30 @@ class PlaylistID {
         }
     }
 
+    public static function getPlaylistDropdown($pdo, $username) {
+        $dropDown = '<select class="item playlist">
+                        <option value="">Add to playlist</option>
+        ';
+
+        try {
+            $sql = "SELECT id, name FROM PlaylistsOwner WHERE owner = :owner";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute([
+                ':owner' => $username
+            ]);
+            while($row = $stmt->fetch()) {
+                $id = $row->id;
+                $name = $row->name;
+
+                $dropDown = $dropDown . "<option value='$id'>$name</option>";
+            }
+            return $dropDown . "</select>";
+        } catch (Exception $ex) {
+            echo("Internal error, please contact support");
+            error_log("PlaylistID.php, SQL error=" . $ex->getMessage());
+        }
+    }
+
 }
 
 ?>

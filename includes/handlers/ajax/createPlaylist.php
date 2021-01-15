@@ -17,7 +17,7 @@ if(isset($_POST['name']) && isset($_POST['username'])) {
         ]);
     } catch (Exception $ex) {
         echo("Internal error, please contact support");
-        error_log("Song.php, SQL error=" . $ex->getMessage());
+        error_log("createPlaylist.php, SQL error=" . $ex->getMessage());
     }
 } else {
     echo "Internal error, please contact support.";
