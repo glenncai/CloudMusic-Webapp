@@ -67,6 +67,12 @@ function openPage(url) {
 	history.pushState(null, null, url);
 }
 
+function logout() {
+	$.post("includes/handlers/ajax/logout.php", function() {
+		window.location.reload();
+	});
+}
+
 function removeFromPlaylist(button, playlistId) {
 	let songId = $(button).prevAll(".songId").val();
 
@@ -82,6 +88,30 @@ function removeFromPlaylist(button, playlistId) {
 
 		openPage("playlist.php?id=" + playlistId);
 	});
+}
+
+function updateEmail(email) {
+	let emailValue = $("." + email).val();
+
+	$.post("includes/handlers/ajax/updateEmail.php", {email: emailValue, username: userLoggedIn})
+	.done(function(response) {
+		$("." + email).nextAll(".message").text(response);
+	});
+
+}
+
+function updatePassword(oldPasswordClass, newPassword1Class, newPassword2Class) {
+	let oldPassword = $("." + oldPasswordClass).val();
+	let newPassword1 = $("." + newPassword1Class).val();
+	let newPassword2 = $("." + newPassword2Class).val();
+
+	$.post("includes/handlers/ajax/updatePassword.php", 
+	{oldPassword: oldPassword, newPassword1: newPassword1, newPassword2: newPassword2, username: userLoggedIn})
+	.done(function(response) {
+		// change the text result
+		$("." + oldPasswordClass).nextAll(".message").text(response);
+	});
+
 }
 
 function createPlaylist() {

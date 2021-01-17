@@ -24,7 +24,7 @@
                 </span>
             </div>
             <div class="navItem">
-                <span onclick="openPage('profile.php')" class="navItemLink" id="profileLink">
+                <span onclick="openPage('setting.php')" class="navItemLink" id="profileLink">
                     <img id="profileImage" src="assets/images/icons/contact-grey.png" alt="Profile"><span id="profileName">Profile</span>
                 </span>
             </div>
