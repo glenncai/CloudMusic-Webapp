@@ -5,10 +5,18 @@ session_start();
 
 $timezone = date_default_timezone_set("Asia/Hong_Kong");
 
-$db['DB_HOST'] = "localhost";
-$db['DB_USER'] = "root";
-$db['DB_PASS'] = "";
-$db['DB_NAME'] = "musicapp";
+// Development connection
+//$db['DB_HOST'] = "localhost";
+//$db['DB_USER'] = "root";
+//$db['DB_PASS'] = "";
+//$db['DB_NAME'] = "musicapp";
+
+// Remote database
+$db['DB_HOST'] = "remotemysql.com";
+$db['DB_USER'] = "Nhp9cHQs1s";
+$db['DB_PASS'] = "Hhfvt4WD13";
+$db['DB_NAME'] = "Nhp9cHQs1s";
+
 
 // Set them to be constant, it is more secure to ourself
 foreach($db as $key => $value) {
