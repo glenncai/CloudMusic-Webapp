@@ -28,15 +28,9 @@
 
 .inputContainer {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    min-height: 100vh;
-    margin-top: -20px;
-}
-
-.inputContainer #loginForm {
-    position: relative;
-    top: -200px;
+    flex-direction: column;
 }
 
 .inputContainer h2 {
@@ -53,7 +47,7 @@
 
 .inputContainer input {
     display: block;
-    width: 350px;
+    width: 320px;
     position: relative;
     font-size: 16px;
     padding: 5px 10px;
@@ -64,6 +58,7 @@
     -o-transition: all 0.30s ease-in-out;
     outline: none;
     border: 1px solid #c3c1c1;
+    max-width: 90%;
 }
 
 .inputContainer input:focus {
@@ -177,6 +172,7 @@
 #heading {
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
 }
 
 .buttonList {
