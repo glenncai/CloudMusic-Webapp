@@ -33,16 +33,18 @@ function keepValueLastTime($value) {
         <img src="assets/images/logo/logo-black.png" alt="logo">
     </div>
 
-    <div id="heading">Discover more in cloud music...</div>
-
-    <div class="buttonList">
-        <div class="buttonListE"><button id="ad_A">Cloud Music Free</button></div>
-        <div class="buttonListE"><button id="ad_B">The Best Music Webapp</button></div>
-        <div class="buttonListE"><button id="ad_C">Enjoy this moment</button></div>
-    </div>
     <div class="inputContainer">
+        <div class="buttonList">
+            <h3 id="heading">Discover more in cloud music...</h3>
+            <div class="buttonListE"><button id="ad_A">Cloud Music Free</button></div>
+            <div class="buttonListE"><button id="ad_B">The Best Music Webapp</button></div>
+            <div class="buttonListE"><button id="ad_C">Enjoy this moment</button></div>
+        </div>
         <form action="register.php" id="loginForm" method="POST">
             <div class="line"></div>
+            <h3>You can use test account for quick login</h3>
+            <h3>Username: test123456</h3>
+            <h3>Password: test123456</h3>
             <h2>To continue, log in to Cloud Music</h2>
             <p>
                 <label for="loginUsername">Email address or username</label>
@@ -55,7 +57,6 @@ function keepValueLastTime($value) {
                 <input type="password" id="loginPassword" name="loginPassword" placeholder="Password." required>
             </p>
             <button class="greenButton" type="submit" name="loginButton">LOG IN</button>
-            <div></div>
             <div class="hasAccountText">
                 <div class="line"></div>
                 <span>Don't have an account?</span>
@@ -112,6 +113,7 @@ function keepValueLastTime($value) {
             </div>
         </form>
     </div>  
+    
     <noscript>Your browser does not support JavaScript!</noscript>
     <script src="assets/js/jQuery_3.5.1.js"></script>
     <script src="assets/js/register.js"></script>
